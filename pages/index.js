@@ -1,131 +1,87 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { ChefHat, TrendingUp, BarChart2 } from 'lucide-react';
+import React from 'react';
 
-export default function Home() {
+const Home = () => {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <div className="bg-gray-100 min-h-screen">
+      <header className="bg-blue-600 text-white p-4">
+        <div className="container mx-auto flex justify-between items-center">
+          <h1 className="text-2xl font-bold">1 Kitchen</h1>
+          <nav>
+            <ul className="flex space-x-4">
+              <li><a href="#features" className="hover:underline">Features</a></li>
+              <li><a href="#benefits" className="hover:underline">Benefits</a></li>
+              <li><a href="#contact" className="hover:underline">Contact</a></li>
+            </ul>
+          </nav>
         </div>
+      </header>
+
+      <main className="container mx-auto mt-8 p-4">
+        <section className="text-center mb-12">
+          <h2 className="text-4xl font-bold mb-4">Revolutionize Your Restaurant with AI-Powered POS</h2>
+          <p className="text-xl mb-8">1 Kitchen: Your all-in-one solution for POS, KOT, and business analytics</p>
+          <button className="bg-green-500 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-green-600 transition-colors">
+            Get Started
+          </button>
+        </section>
+
+        <section id="features" className="mb-12">
+          <h3 className="text-2xl font-bold mb-6">Key Features</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <FeatureCard
+              icon={<ChefHat size={24} />}
+              title="Smart POS & KOT"
+              description="Streamline your kitchen operations with our intuitive POS and KOT system."
+            />
+            <FeatureCard
+              icon={<TrendingUp size={24} />}
+              title="AI-Driven Analytics"
+              description="Gain valuable insights to boost your revenue and optimize your business."
+            />
+            <FeatureCard
+              icon={<BarChart2 size={24} />}
+              title="Real-time Reporting"
+              description="Access up-to-the-minute data on sales, inventory, and performance."
+            />
+          </div>
+        </section>
+
+        <section id="benefits" className="mb-12">
+          <h3 className="text-2xl font-bold mb-6">Benefits</h3>
+          <ul className="list-disc list-inside space-y-2">
+            <li>Increase efficiency and reduce errors in order processing</li>
+            <li>Make data-driven decisions to optimize your menu and pricing</li>
+            <li>Improve customer satisfaction with faster service</li>
+            <li>Minimize food waste and control inventory costs</li>
+            <li>Focus on what matters: creating great food and experiences</li>
+          </ul>
+        </section>
+
+        <section id="contact" className="text-center">
+          <h3 className="text-2xl font-bold mb-6">Ready to transform your restaurant?</h3>
+          <p className="mb-4">Contact us for a free demo and see how 1 Kitchen can revolutionize your business.</p>
+          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors">
+            Request Demo
+          </button>
+        </section>
       </main>
 
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className={styles.logo} />
-        </a>
+      <footer className="bg-gray-800 text-white p-4 mt-12">
+        <div className="container mx-auto text-center">
+          <p>&copy; 2024 1 Kitchen. All rights reserved.</p>
+        </div>
       </footer>
-
-      <style jsx>{`
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family:
-            Menlo,
-            Monaco,
-            Lucida Console,
-            Liberation Mono,
-            DejaVu Sans Mono,
-            Bitstream Vera Sans Mono,
-            Courier New,
-            monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family:
-            -apple-system,
-            BlinkMacSystemFont,
-            Segoe UI,
-            Roboto,
-            Oxygen,
-            Ubuntu,
-            Cantarell,
-            Fira Sans,
-            Droid Sans,
-            Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
   );
-}
+};
+
+const FeatureCard = ({ icon, title, description }) => (
+  <div className="bg-white p-6 rounded-lg shadow-md">
+    <div className="text-blue-600 mb-4">{icon}</div>
+    <h4 className="text-xl font-semibold mb-2">{title}</h4>
+    <p>{description}</p>
+  </div>
+);
+
+export default Home;
